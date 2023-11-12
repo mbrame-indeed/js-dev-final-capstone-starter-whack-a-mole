@@ -292,20 +292,20 @@ startButton.addEventListener("click", startGame);
 
 // Audio feature sections go here
 
-function playAudio(audioObject) {
+function playAudio(audioObject) {  // plays the audio object
   audioObject.play();
 }
 
-function loopAudio(audioObject) {
+function loopAudio(audioObject) { // loops the audio object playback
   audioObject.loop = true;
   playAudio(audioObject);
 }
 
-function stopAudio(audioObject) {
+function stopAudio(audioObject) { // stops the audio object playback
   audioObject.pause();
 }
 
-function toggleMusic(){
+function toggleMusic(){ // toggles the music on or off
   if (!music.paused) {
     stopAudio(music);
   } else {
@@ -313,11 +313,11 @@ function toggleMusic(){
   }
 }
 
-function playClickSound(){
+function playClickSound(){ // plays a sound when clicking on the grid
   playAudio(clickSound);
 }
 
-function toggleSoundFX(){
+function toggleSoundFX(){ // toggles the mouse click sound on or off
   if (clickSound.muted) {
     clickSound.muted = false;
     grid.addEventListener("click", playClickSound);
