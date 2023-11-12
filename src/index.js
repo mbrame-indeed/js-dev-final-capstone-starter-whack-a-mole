@@ -3,6 +3,8 @@ const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
 const score = document.querySelector('#score'); // Use querySelector() to get the score element
 const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
+const clickSound = new Audio("../assets/kiss_sound_short.mp3");
+const music = new Audio("../assets/molesong.mp3");
 
 let time = 0;
 let timer;
@@ -145,7 +147,12 @@ function showAndHide(hole, delay){
 *
 */
 function toggleVisibility(hole){
-  hole.classList.toggle("show");
+  try {
+    hole.classList.toggle("show");
+  }
+  catch (error) {
+    console.log(`Caught an unimportant error, kiss the bird! ${error}`);
+  }
   return hole;
 }
 
@@ -269,6 +276,41 @@ function startGame(){
 
 startButton.addEventListener("click", startGame);
 
+// function mouseSound() {
+//   var fileUrl = "../assets/kiss_sound.mp3";
+//   var audio = new Audio(fileUrl);
+//   audio.play();
+// }
+
+// window.addEventListener('click', mouseSound);
+
+
+// Audio feature sections go here
+
+function playAudio(audioObject) {
+  audioObject.play();
+}
+
+function loopAudio(audioObject) {
+  audioObject.loop = true;
+  playAudio(audioObject);
+}
+
+function stopAudio(audioObject) {
+  audioObject.pause();
+}
+
+function toggleMusic(){
+  if (!music.paused) {
+    stopAudio(music);
+  } else {
+    loopAudio(music);
+  }
+}
+
+function playClickSound(){
+  playAudio(clickSound);
+}
 
 // Please do not modify the code below.
 // Used for testing purposes.

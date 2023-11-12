@@ -1,6 +1,7 @@
 html {
   /*background: url('./assets/background.png') no-repeat center center fixed;*/
-  background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed;
+  /* background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed; */
+  background: url('../assets/parrot_background.png') no-repeat center center fixed;
   box-sizing: border-box;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -26,21 +27,27 @@ h2 {
 }
 
 #start {
-    text-align: center;
-    font-size: 30px;
+  text-align: center;
+  font-size: 30px;
+}
+
+#playBtn {
+  text-align: center;
+  font-size: 30px;
 }
 
 #timer{
-    color: white;
+  color: white;
 }
 
 .grid {
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 600px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  /*cursor: url('./assets/mallet.png'), pointer;*/
+  /* cursor: url('../assets/mallet.png'), pointer; */
+  cursor: url('../assets/red_lips_1.png'), pointer;
 }
 
 .hole {
@@ -52,24 +59,26 @@ h2 {
 .hole:after {
   display: block;
   /*background: url("./assets/hole.png") bottom center no-repeat;*/
-  background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat;
+  /* background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat; */
+  background: url("../assets/nest_1.png") bottom center no-repeat;
   background-size:contain;
   content:'';
-  width: 100%;
+  width: 80%;
   height: 100%;
   position: absolute;
-  bottom: -40%;
+  bottom: -10%;
   z-index: 2;
   pointer-events:none;
 }
 
 .mole {
   /*background:url('./assets/mole.png') bottom center no-repeat;*/
-  background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat;
-  background-size: 40%;
+  /* background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat; */
+  background:url('../assets/sun_conure_1.png') bottom center no-repeat;
+  background-size: 80%;
   position: absolute;
   top: 100%;
-  width: 100%;
+  width: 90%;
   height: 100%;
   /*transition: transform 0.5s;*/
   transition: all 1s;
@@ -78,5 +87,6 @@ h2 {
 
 .hole.show .mole {
   top: 0;
-  /*transform: scale(1.1);*/
+  transform: scale(1.1);
 }
+
