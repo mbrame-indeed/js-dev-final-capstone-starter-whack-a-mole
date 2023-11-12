@@ -62,7 +62,7 @@ function setDelay(difficulty) {
  * This function should select a random Hole from the list of holes.
  * 1. generate a random integer from 0 to 8 and assign it to an index variable
  * 2. get a random hole with the random index (e.g. const hole = holes[index])
- * 3. if hole === lastHole then call chooseHole(holes) again.
+ * 3. if hole === lastHole then pick a different hole
  * 4. if hole is not the same as the lastHole then keep track of 
  * it (lastHole = hole) and return the hole
  *
@@ -72,9 +72,17 @@ function setDelay(difficulty) {
  */
 function chooseHole(holes) {
   holeNum = randomInteger(0, 8);
-  const hole = holes[holeNum];
-  if (hole === lastHole) {  // compares the hole to the lastHole, if they match, choose again
-    chooseHole(holes);
+  let hole = holes[holeNum];
+  if (hole === lastHole) {  // compares the hole to the lastHole, if they match, choose another
+    if (holeNum === 0) { // doing this the simple way without recursion
+      hole = holes[8];
+      lastHole = hole;
+      return hole;
+    } else {
+      hole = holes[holeNum - 1];
+      lastHole = hole;
+      return hole;
+    }
   } else {
     lastHole = hole;
     return hole;
@@ -135,7 +143,8 @@ function showUp() {
 *
 */
 function showAndHide(hole, delay){
-  toggleVisibility(hole);
+
+  toggleVisibility(hole); // shows the mole/bird
 
   const timeoutID = setTimeout(() => {
     toggleVisibility(hole);
@@ -155,7 +164,7 @@ function toggleVisibility(hole){
     hole.classList.toggle("show");
   }
   catch (error) {
-    console.log(`Caught an unimportant error, kiss the bird! ${error}`);
+    console.log(`Caught an error, kiss the bird! ${error}`);
   }
   return hole;
 }
