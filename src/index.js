@@ -1,6 +1,9 @@
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
 const startButton = document.querySelector('#start');
+const playButton = document.querySelector('#playBtn');
+const soundFXButton = document.querySelector('#soundFXBtn');
+const grid = document.querySelector('.grid');
 const score = document.querySelector('#score'); // Use querySelector() to get the score element
 const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
 const clickSound = new Audio("../assets/kiss_sound_short.mp3");
@@ -10,7 +13,8 @@ let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
-let difficulty = "hard";
+let difficulty = "easy";
+clickSound.muted = true;
 
 /**
  * Generates a random integer within a range.
@@ -218,7 +222,7 @@ function startTimer() {
 * the moles.
 *
 */
-function whack(event) {
+function whack() {
   updateScore();
   return points;
 }
@@ -254,7 +258,7 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
-  // stopAudio(song);  //optional
+  stopAudio(music);  
   clearInterval(timer);
   return "game stopped";
 }
@@ -275,14 +279,6 @@ function startGame(){
 }
 
 startButton.addEventListener("click", startGame);
-
-// function mouseSound() {
-//   var fileUrl = "../assets/kiss_sound.mp3";
-//   var audio = new Audio(fileUrl);
-//   audio.play();
-// }
-
-// window.addEventListener('click', mouseSound);
 
 
 // Audio feature sections go here
@@ -311,6 +307,19 @@ function toggleMusic(){
 function playClickSound(){
   playAudio(clickSound);
 }
+
+function toggleSoundFX(){
+  if (clickSound.muted) {
+    clickSound.muted = false;
+    grid.addEventListener("click", playClickSound);
+  } else {
+    clickSound.muted = true;
+    grid.removeEventListener("click", playClickSound);
+  }
+}
+
+playButton.addEventListener("click", toggleMusic);
+soundFXButton.addEventListener("click", toggleSoundFX);
 
 // Please do not modify the code below.
 // Used for testing purposes.
