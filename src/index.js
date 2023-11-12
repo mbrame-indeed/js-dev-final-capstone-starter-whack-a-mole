@@ -4,8 +4,8 @@ const startButton = document.querySelector('#start');
 const playButton = document.querySelector('#playBtn');
 const soundFXButton = document.querySelector('#soundFXBtn');
 const grid = document.querySelector('.grid');
-const score = document.querySelector('#score'); // Use querySelector() to get the score element
-const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
+const score = document.querySelector('#score');
+const timerDisplay = document.querySelector('#timer'); 
 const clickSound = new Audio("../assets/kiss_sound_short.mp3");
 const music = new Audio("../assets/molesong.mp3");
 
@@ -160,7 +160,7 @@ function showAndHide(hole, delay){
 *
 */
 function toggleVisibility(hole){
-  try {
+  try { // added a try/catch block since this threw and error in early coding
     hole.classList.toggle("show");
   }
   catch (error) {
