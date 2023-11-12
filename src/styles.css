@@ -29,6 +29,7 @@ h2 {
   font-size: 30px;
   color: teal;
   background-color: #b2d8d8;
+  border-radius: 8px;
 }
 
 #timer{
