@@ -6,8 +6,8 @@ const soundFXButton = document.querySelector('#soundFXBtn');
 const grid = document.querySelector('.grid');
 const score = document.querySelector('#score');
 const timerDisplay = document.querySelector('#timer'); 
-const clickSound = new Audio("../assets/kiss_sound_short.mp3");
-const music = new Audio("../assets/molesong.mp3");
+const clickSound = new Audio("./assets/kiss_sound_short.mp3");
+const music = new Audio("./assets/molesong.mp3");
 
 let time = 0;
 let timer;
