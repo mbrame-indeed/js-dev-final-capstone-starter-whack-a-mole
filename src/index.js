@@ -257,6 +257,7 @@ function setEventListeners(){
 */
 function setDuration(duration) {
   time = duration;
+  timerDisplay.textContent = time;
   return time;
 }
 
@@ -269,6 +270,9 @@ function setDuration(duration) {
 function stopGame(){
   stopAudio(music);  
   clearInterval(timer);
+  startButton.disabled = false;
+  
+  startButton.textContent = "Start Game";
   return "game stopped";
 }
 
@@ -279,6 +283,8 @@ function stopGame(){
 *
 */
 function startGame(){
+  startButton.disabled = true;
+  startButton.textContent = "Game In Progress";
   clearScore();  // clear the score before each game
   setDuration(10);
   showUp();
